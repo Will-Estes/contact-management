@@ -40,7 +40,11 @@ public class ContactServiceImpl implements ContactService {
 
     @Override
     public void removeContact(Long id) {
-        contactRepository.deleteById(id);
+        if (contactRepository.existsById(id)) {
+            contactRepository.deleteById(id);
+        } else {
+            throw new NotFoundException("Contact not found");
+        }
     }
 
     @Override
