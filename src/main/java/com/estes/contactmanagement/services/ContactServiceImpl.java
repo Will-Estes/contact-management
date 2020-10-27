@@ -53,7 +53,6 @@ public class ContactServiceImpl implements ContactService {
         contact.setFirstName(contactDto.getFirstName());
         contact.setLastName(contactDto.getLastName());
         contact.setEmail(contactDto.getEmail());
-//        contact.setUpdatedDate(Timestamp.from(Instant.now()));
         return contactMapper.contactToContactDto(contactRepository.save(contact));
     }
 }
